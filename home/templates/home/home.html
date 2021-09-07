@@ -1,0 +1,28 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-6">
+                <a href="{% url 'project_reviews:detail' project.id %}">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0 mt-5">
+                      <img src="{{ project.image.url }}" alt="..." width="300" height="200">
+                    </div>
+                    <div class="flex-grow-1 ms-3 mt-5">
+                        <h3>{{ project.title }}</h3>
+                        <br>
+                        <p>{{ project.description|safe|truncatechars:200 }}</p>
+                    </div>
+                </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    </div>
+
+{% endblock %}

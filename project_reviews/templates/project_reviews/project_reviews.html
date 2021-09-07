@@ -1,0 +1,11 @@
+{% extends 'home/base.html' %}
+
+{% block content %}
+    <h1>Обзоры криптопроектов</h1>
+
+    {% for project in projects %}
+    {{ project.title }}
+    <br><img src="{{ project.image.url }}" alt="" with="300" height="500">
+    {% endfor %}
+
+{% endblock %}
