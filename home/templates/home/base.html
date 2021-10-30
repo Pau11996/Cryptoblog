@@ -12,8 +12,21 @@
     <title>CryptoWooer</title>
   </head>
   <body>
-    <div class="logo">
-      <p class="fig"><a href="{% url 'home'%}"><img class="fig1" src="{% static 'home/logo.png'%}" alt="" width="500", height="120"></a></p>
+    <div class="logo logo_1">
+      <a href="{% url 'home' %}"><img class="fig1 align-middle" src="{% static 'home/logo.png'%}" alt="" width="500", height="120"></a>
+      {% if user.is_authenticated %}
+      <p id="logged">Logged id as {{ user.username }}</p>
+
+      <form action="{% url 'logoutuser' %}" method="POST">
+      {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+      <a href="{% url 'myarticles' %}"><button type="button" class="btn btn-warning pull-right">My Account</button></a>
+      {% else %}
+      <a href="{% url 'loginuser' %}"><button type="button" class="btn btn-primary pull-right">Login</button></a>
+      <a href="{% url 'signupuser' %}"><button type="button" class="btn btn-warning pull-right">Sign Up</button></a>
+
+      {% endif %}
     </div>
       <ul class="nav justify-content-center">
     <li class="nav-item">

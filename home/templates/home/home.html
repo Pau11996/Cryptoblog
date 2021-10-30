@@ -6,7 +6,7 @@
         <div class="row">
             {% for project in projects %}
             <div class="col-6">
-                <a href="{% url 'project_reviews:detail' project.id %}">
+                <a href="{% url 'project_reviews:detail' project.slug %}">
                 <div class="d-flex align-items-center">
                     <div class="flex-shrink-0 mt-5">
                       <img src="{{ project.image.url }}" alt="..." width="300" height="200">

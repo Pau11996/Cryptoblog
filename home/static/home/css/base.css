@@ -5,12 +5,13 @@
     background-color: #000;;
 }
 
-#logo1 {
-    margin-left: 50px;
+.logo_1 {
+    text-align:center;
+    justify-content: center;
 }
 
-.fig {
-    text-align: center;
+auth {
+    float: right;
 }
 
 .fig1 {
@@ -26,4 +27,15 @@
 a {
     text-decoration: none;
     color: black;
+}
+
+#logged {
+    color: blue;
+    display: inline;
+
+}
+
+form {
+    display: inline;
+
 }

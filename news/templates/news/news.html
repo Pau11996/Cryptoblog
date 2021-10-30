@@ -1,8 +1,26 @@
 {% extends 'home/base.html' %}
 
 {% block content %}
+    <ul class="nav justify-content-center">
+        {% if cat_selected == 0 %}
+        <li class="selected">Все категории</li>
+        {% else %}
+        <li> <a href="#">Все категории</a></li>
+        {% endif %}
 
-НОВОСТЬ 1
+        {% for c in catnew %}
+            {% if c.pk == cat_selected %}
+                <li class="selected">{{c.title}}</li>
+            {% else %}
+                <li> <a href="{{ c.get_absolute_url }}"> {{c.title}}</a></li>
+            {% endif %}
+        {% endfor %}
 
+    </ul>
+    {% for new in news %}
+        {{ new.title }}
+        {{ new.content }}
+        <br><img src="{{ new.image.url }}" alt="" with="300" height="500">
+    {% endfor %}
 
 {% endblock %}
